@@ -1,0 +1,33 @@
+- [ ] https://www.rstudio.com/resources/rstudioconf-2020/15-years-of-r-in-quantitative-finance/
+- [ ] Investopedia
+	- [ ] https://www.investopedia.com/terms/b/bondrating.asp
+	- [ ] https://www.investopedia.com/terms/c/capitalexpenditure.asp
+	- [ ] https://www.investopedia.com/terms/a/arbitrage.asp
+	- [ ] https://www.investopedia.com/terms/d/derivative.asp
+- [ ] Careers in Finance: Series by Zerodha 
+	- [ ] [Corporate Finance](https://www.youtube.com/watch?v=qI_Dr9P76Bw) 
+	- [ ] [Investment Banking](https://www.youtube.com/watch?v=3ivP6-y8tN8) 
+	- [ ] [Public and private markets](https://www.youtube.com/watch?v=PjQSs621oII)
+- [ ] [Is the world going quants mad? Dr Paul Wilmott](https://www.youtube.com/watch?v=ZNqkyKNobLE)
+- [ ] [Quants | The Alchemists of Wall Street | VPRO documentary](https://www.youtube.com/watch?v=ed2FWNWwE3I)
+- [ ] [OpenBB: Role of Python in the Finance Industry](https://www.youtube.com/watch?v=itU3QwcWFOE&t=2s)
+
+- Search for Quant Resources on Github
+- 100 days of x
+- Read Newspaper daily
+- Listen to podcast daily
+- Varsity Daily
+- set up habits
+- cleanup my linkedin and github profile.
+	- Do more projects and add them on github for recruiters to see
+- Good Linkedin and angel list bio.
+- How to message recruiters on linkedin/angel while sending a job application that you're a good fit
+- Redo your profile on linkedin/Github/Angel.co to reflect your interest in finance/quant
+- https://www.google.com/search?q=asset+management+company+in+india
+- https://www.google.com/search?client=firefox-b-d&q=vc+firms+in+india
+- https://www.google.com/search?client=firefox-b-d&q=popular+hedge+funds+in+india
+from [Quantitative Analyst](./QuantitativeAnalyst.md)
+- [ ] Roadmap to Quant Analyst
+- [ ] List companies which hire QuantAnalysts
+- [ ] Check resumes of people currently working as quant analyst
+- [ ] roles similar to quant analyst, which require similar skills.
