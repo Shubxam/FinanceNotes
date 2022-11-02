@@ -1,0 +1,1036 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>mdBook Quickstart</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Demo site for mdBook Quickstart repo">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="blog.html"><strong aria-hidden="true">1.</strong> Blog</a></li><li class="chapter-item expanded "><a href="CorporateFinance.html"><strong aria-hidden="true">2.</strong> Corporate Finance</a></li><li class="chapter-item expanded "><a href="FinancialTerms.html"><strong aria-hidden="true">3.</strong> Financial Terms</a></li><li class="chapter-item expanded "><a href="FinancialStatements.html"><strong aria-hidden="true">4.</strong> Financial Statements</a></li><li class="chapter-item expanded "><a href="Projects.html"><strong aria-hidden="true">5.</strong> Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="CreditCardFraudDetection.html"><strong aria-hidden="true">5.1.</strong> Credit Card Fraud Detection</a></li></ol></li><li class="chapter-item expanded "><a href="PWIQF.html"><strong aria-hidden="true">6.</strong> Paul Wilmott Introduces Quant Finance</a></li><li class="chapter-item expanded "><a href="QuantitativeAnalyst.html"><strong aria-hidden="true">7.</strong> Quantitative Analyst</a></li><li class="chapter-item expanded "><a href="Resources.html"><strong aria-hidden="true">8.</strong> Resources</a></li><li class="chapter-item expanded "><a href="Roadmap.html"><strong aria-hidden="true">9.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="Todos.html"><strong aria-hidden="true">10.</strong> Todos</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">mdBook Quickstart</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <ul>
+<li>Made using <a href="https://quarto.org/">Quarto</a>.</li>
+<li>https://quarto.org/docs/websites/website-blog.html</li>
+<li>https://nbdev.fast.ai/tutorials/blogging.html#publishing-your-blog</li>
+<li>Set up a github repository, make different files for different finance topics. Explain the theory behind those and code them. Link them to a blog and show the jupyter notebook associated with it.</li>
+<li>https://www.fast.ai/posts/2020-01-20-nb2md.html</li>
+<li>https://www.fast.ai/posts/2020-01-16-fast_template.html</li>
+</ul>
+<h2 id="todos"><a class="header" href="#todos">Todos</a></h2>
+<ul>
+<li><input disabled="" type="checkbox"/>
+https://www.youtube.com/watch?v=l7zS8Ld4_iA&amp;t=22s</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><hr />
+<hr />
+<h1 id="resources"><a class="header" href="#resources">Resources</a></h1>
+<ul>
+<li><a href="https://pages.stern.nyu.edu/~adamodar/">Aswath Damodaran</a>
+<ul>
+<li>Video Lectures</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="financial-terms"><a class="header" href="#financial-terms">Financial Terms</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><p>In understanding financial growth of a company while craeting an algorithm, it helps if we understand how to read the three main financial statements:</p>
+<ul>
+<li><a href="FinancialStatements.html#Income-Statement">Income Statement</a></li>
+<li><a href="FinancialStatements.html#Balance-Sheet">Balance sheet</a></li>
+<li><a href="FinancialStatements.html#Cash-Flow-Statement">Cash Flow Statement</a></li>
+</ul>
+<h2 id="income-statement"><a class="header" href="#income-statement">Income Statement</a></h2>
+<ul>
+<li>Represents company's performance over a period in time.</li>
+<li>Contains info about company's revenue, expenses and net income.</li>
+<li>Predictions about company's earnings could be made using income statement. Which affects company's image in the market.
+<img src="./img/1.png" alt="1-incomestatement" /></li>
+<li>Its often split into two sections</li>
+</ul>
+<ol>
+<li><strong>Operating</strong>
+<ul>
+<li>
+<p>Contains info on primary business line of a company.</p>
+<blockquote>
+<p>E.g. If a company's main line of business is Laptops, then operating section will contain info related to sale of laptops.</p>
+</blockquote>
+<ul>
+<li><em>sales</em> refers to the revenue from sales of the finished goods.</li>
+</ul>
+</li>
+<li>
+<p><em>cost of goods sold</em> (cogs) refers to cost asoociated with materials that go into production of the good. (The raw materials nothing else)</p>
+</li>
+<li>
+<p><em>Gross Margin</em> is the profit before deducting non-product operating expenses.</p>
+<ul>
+<li>$Gross Margin = sales - cogs$</li>
+</ul>
+</li>
+<li>
+<p>Now we list non-product operating expenses. These are the expenses not associated with cost of materials.</p>
+</li>
+<li>
+<p><em>Selling, General and Administration Expenses</em> (SGnA) are the expenses associated with the cost of producing the goods (except the materials).</p>
+<blockquote>
+<p>E.g. Office Rent, Employee Salaries are examples of SGnA.</p>
+</blockquote>
+</li>
+<li>
+<p><em>Depreciation</em> is the cost of using fixed assets over the course of income period.</p>
+<blockquote>
+<p>If $40 mil were spent on laptop manufacturing plant which could be used for 20 years, then each year the plant value would be depreciated by $2 million.</p>
+</blockquote>
+</li>
+<li>
+<p><em>Amoritization</em> is the process of paying off a debt with regular payments.</p>
+</li>
+</ul>
+</li>
+<li><strong>Non Operating</strong>
+<ul>
+<li>Contains info that is not related to company's primary line of business.</li>
+<li>Useful to isolate company's primary business line from other expenses which could still affect company's net revenue.</li>
+<li><em>Earnings per share</em> : Earnings/Company's shares
+<ul>
+<li>Useful to compare companies within same industries.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="balance-sheet"><a class="header" href="#balance-sheet">Balance Sheet</a></h2>
+<ul>
+<li>It represents a company's performance at a specific point in time (date).
+<img src="./img/2.png" alt="2-BalanceSheet" /></li>
+<li>Often split into 3 sections</li>
+</ul>
+<ol>
+<li><strong>Assets</strong>
+<ul>
+<li>Assets are listed at the top of the balance sheet.</li>
+<li>They are listed in the order of their liquidity (i.e. how liquid they are.)</li>
+<li>There are two types of assets
+<ol>
+<li><em>Current Assets</em> are the assets which would take less than a year to be liquidated.
+<ul>
+<li><em>Accounts Recievable</em> is the amount to be recieved by the company from some sources which hasn't been received yet.</li>
+</ul>
+</li>
+<li><em>Non-Current Assets</em> are the assets which are illiquid i.e. would take more than a year if were to be liquidated.
+<ul>
+<li>There are 2 types of non-current assets
+<ol>
+<li><em>Tangible NCA</em> : property, plants and equipments (PPnE) are example of tangible NCA.</li>
+<li><em>Non-Tangible NCA</em> : example of non-tangible NCA is Goodwill</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Liabilities</strong>
+<ul>
+<li>Liabilities are the debts or obligations which a company owes.</li>
+<li>Liabilities are listed in order in which they should be paid out first.</li>
+<li>There are two types of liabilities:
+<ol>
+<li><em>Current Liabilities</em> are liabilities which could be paid out within one year.
+<ul>
+<li><em>Accrued Expenses</em> are salaries of emplyees which hasn't been paid yet.</li>
+</ul>
+</li>
+<li><em>Non-Current Liabilities</em> are liabilities which would take more than a year to be paid off.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Shareholder Equity</strong> (Book Value)
+<ul>
+<li>Ownership of a company by its shareholders.</li>
+<li><em>Common stocks</em> are Proceeds from the sale of a common stock.</li>
+<li><em>Retained Earnings</em> are the prior earnings which could be paid out as dividends in future.</li>
+</ul>
+<blockquote>
+<ul>
+<li>It could also be thought of as the networth of a company. i.e. the value of each share if company were to shut off, selling all of its assets and paying off all of its debts.</li>
+<li>It does not equal the public market value i.e. value of its share in public market could be different than shareholder equity.</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>Balance sheet must always balance <br />
+i.e. $Assets = Liabilities + Shareholder Equity$</li>
+</ul>
+<h2 id="cash-flow-statement"><a class="header" href="#cash-flow-statement">Cash Flow Statement</a></h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=SXjfYfwVDJc&amp;list=PLRFLF1OxMm_XpPOrNgSiuNJoa0H1Nl8dt&amp;index=3">How to Read a Cash Flow Statement</a> #todo</li>
+</ul>
+<h1 id="references"><a class="header" href="#references">References</a></h1>
+<ul>
+<li>https://www.youtube.com/playlist?list=PLRFLF1OxMm_XpPOrNgSiuNJoa0H1Nl8dt</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li><a href="./Projects/CreditCardFraudDetection.html">Credit Card Fraud Detection</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="credit-card-fraud-detection"><a class="header" href="#credit-card-fraud-detection">Credit Card Fraud Detection</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><hr />
+<hr />
+<hr />
+<ul>
+<li>interest rate: $r$</li>
+<li>Forward price: $$F$</li>
+<li>Spot Price: $$S$</li>
+<li>Time (in years): $T$</li>
+<li>some arbitrary time: $t$</li>
+</ul>
+<p>Must Know</p>
+<ul>
+<li>Logarithms</li>
+<li>Euler's Number</li>
+<li>Taylor Series</li>
+<li>Expectation</li>
+</ul>
+<p>Better if you know</p>
+<ul>
+<li>Differential Equations
+<ol>
+<li>Ordinary</li>
+<li>Partial</li>
+<li>Stochastic</li>
+</ol>
+</li>
+</ul>
+<hr />
+<h1 id="table-of-contents"><a class="header" href="#table-of-contents">Table of Contents</a></h1>
+<ol>
+<li>[[#Ch01: Products and Markets|Ch01: Products and Markets]]</li>
+</ol>
+<h1 id="paul-wilmott-introduces-quantitative-finance"><a class="header" href="#paul-wilmott-introduces-quantitative-finance">Paul Wilmott Introduces Quantitative Finance</a></h1>
+<h1 id="ch01-products-and-markets"><a class="header" href="#ch01-products-and-markets">Ch01: Products and Markets</a></h1>
+<h2 id="12-equities"><a class="header" href="#12-equities">1.2 Equities</a></h2>
+<ul>
+<li>Most basic of financial instruments.</li>
+<li>This is the ownership of a small piece of a company.</li>
+<li>The shareholders who own the company between them have some say in the running of the business.</li>
+<li>Directors of a company are meant to act in the best interest of shareholders of a company.</li>
+</ul>
+<blockquote>
+<p>As the asset prices of an instrument go larger, so does the changes in its price from one day to the next.
+Hence, it is reasonable to model the asset price changes as proportion to the current level to the asset. i.e. it is important to model the asset returns in its percentage change rather than the absolute value.
+This way price doesn't go negative.</p>
+</blockquote>
+<h3 id="dividend"><a class="header" href="#dividend">Dividend</a></h3>
+<ul>
+<li>To the average investor, the value in holding stocks comes from either dividends or any growth in stocks value.</li>
+<li>Dividends are portion of company's earnings paid out to its shareholders every quarter or 6 months.</li>
+<li>They are issued in the form of cash payments or shares of stock etc.</li>
+<li>The amount of dividend varies time to time by profitability of the company.</li>
+</ul>
+<h4 id="concept-of-cumex-dividend"><a class="header" href="#concept-of-cumex-dividend">Concept of Cum/Ex Dividend</a></h4>
+<ul>
+<li>When the company announces their yearly/half-yearly/quarterly results, they also announce a series of dates
+<ul>
+<li>
+<p><strong>Cum dividend</strong> (CD)<sup class="footnote-reference"><a href="#1">1</a></sup>
+It's the date when the company declares it's planning to pay out dividends in near future. 
+If you own(hold/purchase) the stock between CD date and XD date, you are entitled for dividends.
+When the company declares the dividend, Share Price of the company goes up by the dividend amount that's been declared because during this period anyone buying the stock is automatically entitled for the dividend, hence market accounts for this amount in the share price.
+Price of shares between CD date and XD Date is called CD Price.</p>
+</li>
+<li>
+<p><strong>Ex dividend</strong> (XD)
+After the CD date has been passed, the stock moves to XD state.
+This is when the company has confirmed the list of shareholders to recieve the dividend and no further changes could be made to the list.
+After the company has declared its XD state, the share prices of company falls.<sup class="footnote-reference"><a href="#2">2</a></sup>
+&gt;- After the dividend has been distributed, the cash reserves of the company falls, hence value of company falls. The share prices then reflect the drop in fundamental value of the company. 
+&gt;- Theoretically, the fall in stock price is equal to amount of dividend issued per share.
+&gt;i.e. $(Value\ of\ company)/(Shares\ Issued) - Dividend = (Value\ of\ company - Total\ Earnings)/(Shares\ Issued)$
+&gt;i.e. $Share\ Price(CD\ Period) - Dividends = Share\ Price(XD\ Period)$</p>
+</li>
+<li>
+<p><strong>Pay out</strong>
+When the dividend transfers to bank account of shareholders.</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="stock-split"><a class="header" href="#stock-split">Stock Split</a></h3>
+<ul>
+<li>Every now and then, a company announces a stock split.</li>
+<li>E.g. If a comapany with stock price $90 announces a three for one stock-split, its one 90 dollor share splits into 3 shares of 30 dollor each.</li>
+</ul>
+<h2 id="13-commodities"><a class="header" href="#13-commodities">1.3 Commodities</a></h2>
+<ul>
+<li>Commodities are usually raw products such as oil, metals etc.</li>
+<li>Mostly trading of commodities is done in [future] markets.</li>
+</ul>
+<h2 id="14-currencies"><a class="header" href="#14-currencies">1.4 Currencies</a></h2>
+<ul>
+<li><strong>Exchange rate</strong> is the rate at which one currency can be exchanged with another.</li>
+<li>Exchanges of such sort are called <strong>Foreign Exchange (FX)</strong>.</li>
+<li>The fluctuaion in interest rate is unpredictable, but there is a link between interest rates(savings returns) and exchange rates in two countries.
+<blockquote>
+<p>I.e. currency of country with higher interest rates appreciates against currency of country with low interest rate.</p>
+</blockquote>
+</li>
+<li>Central banks can use interest rates as a tool for manipulating exchange rates.</li>
+</ul>
+<h2 id="15-indices"><a class="header" href="#15-indices">1.5 Indices</a></h2>
+<ul>
+<li>Indices measure how stock market/economies are doing as a whole.</li>
+<li>An index is typically made up from a weighted sum of selection of representative stocks.
+<ul>
+<li>The selection might represent the whole market or a sector of market.</li>
+</ul>
+</li>
+</ul>
+<h2 id="16-the-time-value-of-money"><a class="header" href="#16-the-time-value-of-money">1.6 The Time Value of Money</a></h2>
+<ul>
+<li>This is the most fundamental concept in finance.</li>
+<li>$1 today is worth more than $1 in a year's time.</li>
+<li>There are multiple types of interest
+<ol>
+<li><strong>Simple Interest</strong>, is where interest in calculated on the initial sum of money(principle amount).</li>
+<li><strong>Compound Interest</strong>, is where interest is generated on interest
+<ol>
+<li>Discretely compounded
+Interest is paid out in discrete time intervals, say, yearly (once a year), biannully (twice a year), quarterly (4x a year), weekly, daily etc. Its formula is given by 
+$$\displaystyle{FV = PV\cdot(1+\frac{r}{t})^{yt}}$$
+<ul>
+<li>$r$ is rate of interest </li>
+<li>$t$ is the no of interest payouts in a year.</li>
+<li>$y$ is the no of years</li>
+</ul>
+</li>
+<li>Continuously compounded<sup class="footnote-reference"><a href="#3">3</a></sup><sup class="footnote-reference"><a href="#4">4</a></sup>
+Interest is paid out in continuous time i.e. ${\lim}\limits_{t\to \infty}$.
+Its formula is given by 
+$$\displaystyle{FV = PV\cdot e^{ry}}$$ 
+Similarly, if we know the future value (FV) of an asset, we can calculate the present value (PV) by
+$$\displaystyle{PV = FV\cdot e^{-ry}}$$</li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="17-fixed-income-securities"><a class="header" href="#17-fixed-income-securities">1.7 Fixed Income Securities</a></h2>
+<ul>
+<li>There are two types of interest payments
+<ol>
+<li><strong>Fixed</strong>, Where the interest paid on principal is fixed and does not vary. Example of such kind of security is coupon based bonds, where the interest (coupon value) on principal is paid annually or semi-annually and the amount is fixed.</li>
+<li><strong>Floating</strong></li>
+</ol>
+</li>
+<li>Interest rate swaps is the market where exchange of fixed rate of interest for floating interest rate happens.</li>
+</ul>
+<h2 id="18-inflation-proof-bonds"><a class="header" href="#18-inflation-proof-bonds">1.8 Inflation Proof Bonds</a></h2>
+<ul>
+<li>These bonds are an effective way of ensuring that income does not get eroded by inflation.</li>
+<li>The coupon value and principal is linked to indices which measure inflation, so as the inflation rises, so does the coupon and principal amount of bonds.</li>
+</ul>
+<h2 id="19-forwards-and-futures"><a class="header" href="#19-forwards-and-futures">1.9 Forwards and Futures</a></h2>
+<ul>
+<li>A <strong>Forward contract</strong> is a customized derivative contract obligating counterparties to buy or sell an asset at specified price on a future date.
+<ul>
+<li>The asset could be equity, bonds, commodities, currency etc.</li>
+<li>It is non-standardized in nature. I.e. it can not be exchanged in markets.</li>
+<li>The amount paid for the asset at the time of delivery (<strong>Maturity</strong>) is called <strong>Delivery Price</strong>. </li>
+<li>At the time the contract is made, value of forward contract is zero.</li>
+<li>The value of forward contract changes from initially 0 to the difference between the spot price of asset at delivery and the delivery price.</li>
+<li>One con associated with Forward Contracts is the <strong>Counterparty Risk</strong>, i.e. one of the party may default.</li>
+<li>Whereas a pro associated with Forward Contracts is that they're highlt customizable i.e. their maturity and contract sizes can be customized.</li>
+<li>Forward Contracts are mainly used for Hedging purposes.</li>
+</ul>
+</li>
+<li>A <strong>Future Contract</strong> is similar to Forward contract, where the differences being, 
+<ul>
+<li>Futures are standardized in nature. i.e. they could be traded in exchange.
+<ul>
+<li>Hence they are more liquid than Forwards.</li>
+</ul>
+</li>
+<li>Future contracts settle everyday, i.e. P/L from the future position is calculated and the difference is paid out everyday. This is called <strong>Marking to the Market</strong>
+<ul>
+<li>This reduces the risk of one party defaulting.</li>
+<li>Exchanges insist that traders must deposit an intial sum of amount, called <strong>Initial Margin</strong>, in an account called <strong>Margin Account</strong>. As the position of asset is market to market daily, money is deposited/withdrawan from this marhin account.</li>
+<li>Traders must always maintain amount as margin above a minimum threshold called <strong>Maintainance Margin</strong>. </li>
+</ul>
+</li>
+<li>Hence value of a Future Contract at any point in its lifetime is 0. </li>
+<li>Future Contracts are mainly used for speculation purposes.</li>
+<li>A Future contract
+<ul>
+<li>specifies the asset being invested in.</li>
+<li>specifies the quantity of asset to be delivered.</li>
+<li>specifies when the asset is to be delivered.</li>
+</ul>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+<h3 id="forward-price-and-spot-price-relationship"><a class="header" href="#forward-price-and-spot-price-relationship">Forward Price and Spot Price Relationship</a></h3>
+<ul>
+<li>Given constant interest rate holds, Forward price of an asset is related to Spot price by
+$$\displaystyle{F=S(t)\times{e^{r[T-t]}}}$$
+where,
+$F$ = Forward Price
+$S(t)$ = Spot price at some time $t$
+$r$ = rate of interest
+$T$ = Time period (in years)</li>
+<li>They share a linear relationship.</li>
+<li>If the relationship is violated, there's an arbitrage opportunity.
+<ul>
+<li>The Standard economic argument then says that investors will act quickly to exploit the opportunity and in the process, prices will adjust to eliminate it.</li>
+</ul>
+</li>
+</ul>
+<h3 id="commodity-futures"><a class="header" href="#commodity-futures">Commodity Futures</a></h3>
+<ul>
+<li>Futures on Commodity don't always obey the no arbitrage law because of the messy topic of Storage.</li>
+<li>Future prices are always higher than the theoritical no-storage-cost amount.</li>
+<li>The holder of the contract must always compensate the holder of the commodity for his storage costs.
+<ul>
+<li>This cost is described in terms of percentage by an adjustment $s$ to risk free rate of return.</li>
+</ul>
+</li>
+<li>Most people holding the commodity are benifitting from it in some way. It is commonly measured in terms of <strong>convenience yield</strong>, $c$. Hence the Relationship between Forward and Spot prices becomes,
+$$\displaystyle{F=S(t)\times{e^{(r+s-c)[T-t]}}}$$</li>
+<li>Market is said to be in <strong>backwardation</strong> if, $\displaystyle{F\lt S(t)\times{e^{r[T-t]}}}$</li>
+<li>Market is said to be in <strong>contango</strong> if, $\displaystyle{F\gt S(t)\times{e^{r[T-t]}}}$</li>
+</ul>
+<h3 id="fx-futures"><a class="header" href="#fx-futures">FX Futures</a></h3>
+<p>#todo</p>
+<h3 id="index-futures"><a class="header" href="#index-futures">Index Futures</a></h3>
+<ul>
+<li>Future Contracts on Stock Indices are settled in Cash.</li>
+<li>Similar to storage for Commodity Futures, here we have to deal with Dividends.
+$$\displaystyle{F = S(t)\times{e^{(r-q)[T-t]}}}$$</li>
+<li>This is an approximation because dividend yield is not continuous.</li>
+</ul>
+<h1 id="ch02-derivatives"><a class="header" href="#ch02-derivatives">Ch02: Derivatives</a></h1>
+<p>A derivative is a term used to describe a contract based on an underlying asset. </p>
+<h2 id="options"><a class="header" href="#options">Options</a></h2>
+<blockquote>
+<p><strong>Definition</strong>: An option is a contract, which gives its holder, the right, but not the obligation, to buy or sell a specific quantity of underlying asset, at a specific price (strike/exercise price) on or before a specified date (Expiration date). </p>
+</blockquote>
+<ul>
+<li>Unlike Forwards/Futures, we dont have the obligation to buy the asset.
+<ul>
+<li>We only exercise the option(buy the stock) if current stock price is higher than the exercise price.</li>
+<li>Similarly, we only sell the stock if the current stock price is lower than the exercise price.</li>
+</ul>
+</li>
+<li><strong>Exercise/Strike Price</strong>, is the price at which you agree to buy/sell the asset.</li>
+<li><strong>Expiration Date</strong>, is the date on/before which the owner must exercise the option.</li>
+<li><strong>Underlying Asset</strong>, is the asset/instrument which the option is based on.</li>
+<li><strong>Payoff Function</strong>, is a function of underlying asset at expiry, which tells us the maximum possible profitability.</li>
+<li>There are two types of Options:
+<ol>
+<li><strong>Call Option</strong>, is the right to <strong>buy</strong> a particular asset for an agreed amount, at a specified time in the future.
+$$\displaystyle{max(S-E, 0)}$$
+where, $S$ is the stock price at the expiry
+$E$, is the exercise/strike price.</li>
+<li><strong>Put Option</strong>, is the right to <strong>sell</strong> a particular asset for an agreed amount, at a specified time in the future.
+$$max(E-S, 0)$$</li>
+</ol>
+</li>
+<li>Unlike Futures/Forwards, there's an upfront payment you have to make for buying the option, called <strong>Premium</strong>, also called <strong>Option Price (Value)</strong>.
+$$Premium = Intrinsic\ Value + Extrinsic\ Value$$</li>
+<li><strong>Intrinsic Value</strong>, is the profit if we exercise the option at its present value.
+<ul>
+<li>Intrinsic Value (profit) is either positive (If the market goes in our favour) or 0 (If it goes in opposite direction).</li>
+<li>For a Call Option: $IV= max(S-E,0)$</li>
+<li>For a Put Option: $IV= max(E-S,0)$</li>
+<li>I.V. is also defined as how much option in In the Money (ITM)</li>
+</ul>
+</li>
+<li><strong>Extrinsic Value</strong>, is a function of two variables
+<ol>
+<li><strong>Time Value<sup class="footnote-reference"><a href="#5">5</a></sup></strong>, is the major constituent of Extrinsic Value.
+<ul>
+<li>It refers to portion of option's premium that is attributable to amount of time remaining untill expiration of contract.</li>
+<li>It is also defined as amount an investor is willing to pay above an option's intrinsic value in hope that the underlying security will become more profitable. 
+$Time\ Value = Premium - Intrinsic Value$</li>
+<li>Generally, greater the time left till expiration, greater the time value of option.</li>
+</ul>
+</li>
+<li><strong>Implied Volatility</strong></li>
+</ol>
+</li>
+</ul>
+<h4 id="relationship-of-asset-with-strike-price"><a class="header" href="#relationship-of-asset-with-strike-price">Relationship of Asset with Strike Price</a></h4>
+<p>An Option is either</p>
+<ol>
+<li><strong>In the Money(I.T.M)</strong> (profitable)
+<ul>
+<li>An option with positive intrinsic value.</li>
+<li>Maximum probability of making a profit, hence large premium.</li>
+<li>Big profits and Big losses.</li>
+<li>More ITM the option is, greater the Intrinsic Value, lesser the time value.</li>
+</ul>
+</li>
+<li><strong>At the Money(A.T.M)</strong> (Break-Even)
+<ul>
+<li>An option with 0 Intrinsic Value.</li>
+<li>Moderate probability of making a profit, hence Moderate premium.</li>
+<li>Moderate profits and Moderate losses.</li>
+<li>Time Value of the Option is greatest at ATM (E=S), because current I.V. is 0 and Potential for Intrinsic Value to begin to rise is greatest at this point.</li>
+</ul>
+</li>
+<li><strong>Out of the Money(O.T.M.)</strong> (In Loss)
+<ul>
+<li>An option with 0 Intrinsic Value.</li>
+<li>Very low probability of making a profit, hence low premium.</li>
+<li>Lesser profits and Lesser losses.</li>
+<li>For deep OTM options, Time Value is less and Intrinsic Value is 0.</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>For a fixed strike price $E$,</li>
+</ul>
+<div class="table-wrapper"><table><thead><tr><th></th><th>ITM</th><th>ATM</th><th>OTM</th></tr></thead><tbody>
+<tr><td>Call</td><td>$(S\gt E)$</td><td>$(S = E)$</td><td>$(S\lt E)$</td></tr>
+<tr><td>Put</td><td>$(S\lt E)$</td><td>$(S = E)$</td><td>$(S\gt E)$</td></tr>
+</tbody></table>
+</div>
+<blockquote>
+<p><strong>Example</strong>: A stock is currently selling for $50.</p>
+<ul>
+<li>If you buy the stock, and
+<ul>
+<li>stock goes to $80, you make a profit of $30. (60% profit on initial investment.)</li>
+<li>stock falls to $30, you make a loss of $20. (40% loss on initial investment.)</li>
+</ul>
+</li>
+<li>If you buy a call option for $5, which specifies the strike price to be $60 and has an expiration of 1 month. If
+<ul>
+<li>stock rises to $80, you exercise the option, buy stock for $60, sell it for $80. Make a profit of $15 ($5 premium). (300% profit on i.i.)</li>
+<li>stock falls to $30. You don't exercise the option. You make a loss of $5(premium). (100% loss on i.i.)</li>
+</ul>
+</li>
+<li>If you already own the stock for $50, and you buy a put option worth $4, with strike price of $37 and expiration date 1 month, and
+<ul>
+<li>stock falls to $25, you exercise the option. Sell the stock at $37, make a profit of $8. (200% profit on i.i.)</li>
+<li>Stock rises to $70. You dont exercise the option. Make a loss of $4 (100% of i.i.)</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>Options put a limit our losses, unlike Futures where you have to buy the asset for the specified price.</li>
+<li>Unike Futures, Options have a non-linear relationship with underlying asset</li>
+<li>Calls and Put are two simplest type of options. </li>
+<li><strong>Long Position</strong>, is a positive amount of quantity. (E.g. When someone owes us shares)</li>
+<li><strong>Short Position</strong>, is a negative amoont of quantity. (E.g. when we owe someone shares)</li>
+</ul>
+<h3 id="relation-between-strike-price-and-options-premium"><a class="header" href="#relation-between-strike-price-and-options-premium">Relation between Strike Price and Options Premium</a></h3>
+<ul>
+<li>If the Strike Price is higher, Premium for Put Option also increases and Premium on Call Option decreases.</li>
+<li>If the Strike Price is lower, Premium for Put Option also decreases and Premium on Call Option increases.
+$$Put\ Options\ Premium \propto Strike\ Price\propto \frac{1}{Call\ Options\ Premium}$$</li>
+</ul>
+<h2 id="payoff-diagrams"><a class="header" href="#payoff-diagrams">Payoff Diagrams</a></h2>
+<ul>
+<li>We could visualise the value of the option at expiry as function of underlying stock price using payoff diagram.
+<img src="img/Pasted%20image%2020221102132740.png" alt="" /> <img src="img/Pasted%20image%2020221102132807.png" alt="" /></li>
+<li>Payoff Diagrams only show value (not profit) of an option at expiry (using payoff functions.), since it does not take premium into account.</li>
+<li>Payoff Diagram is USeful since they simplify analysis of complex strategies involving multiple options.</li>
+</ul>
+<h3 id="profit-diagram"><a class="header" href="#profit-diagram">Profit Diagram</a></h3>
+<ul>
+<li>It Visualises the profit from option at expiry.</li>
+<li>It is derived from payoff diagram where we also account for premium paid for option.</li>
+<li>We subtract the premium amount from payoff value (Shift the graph vertically in the negative direction by premium amount.)</li>
+<li>It shows how far ITM the asset must be at expiry before option turns profitable.</li>
+<li><img src="img/Pasted%20image%2020221102133517.png" alt="" /></li>
+<li>In order to break-even, the option must be </li>
+<li>Does not take into account the time-value of money</li>
+</ul>
+<h1 id="references-1"><a class="header" href="#references-1">References</a></h1>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>https://www.drwealth.com/cum-dividend-vs-ex-dividend/
+<sup class="footnote-reference"><a href="#2">2</a></sup>: https://qr.ae/pvVYkT
+<sup class="footnote-reference"><a href="#3">3</a></sup>: http://www.moneychimp.com/articles/finworks/continuous_compounding.htm
+<sup class="footnote-reference"><a href="#4">4</a></sup>: http://www-stat.wharton.upenn.edu/~waterman/Teaching/IntroMath99/Class04/Notes/node13.htm
+<sup class="footnote-reference"><a href="#5">5</a></sup>: https://www.investopedia.com/articles/optioninvestor/02/021302.asp</p>
+</div>
+<div style="break-before: page; page-break-before: always;"></div><hr />
+<h2 id="tags-finance"><a class="header" href="#tags-finance">tags: finance</a></h2>
+<h1 id="quantitative-analyst"><a class="header" href="#quantitative-analyst">Quantitative Analyst</a></h1>
+<h2 id="companies-which-hire"><a class="header" href="#companies-which-hire">Companies Which Hire</a></h2>
+<ul>
+<li><a href="https://www.linkedin.com/company/axioma-inc/people/">Axioma</a></li>
+</ul>
+<h2 id="people-for-cvs"><a class="header" href="#people-for-cvs">People (For CVs)</a></h2>
+<ul>
+<li><a href="https://www.linkedin.com/in/debarun-sarkar-cqf-b4406436/">Debarun</a></li>
+<li><a href="https://www.linkedin.com/in/tabrez7/">Syed Tabrez</a></li>
+<li><a href="https://www.linkedin.com/in/gaurav-sharma-cfa-mba-cqf-frm-2ab6271a/">Gaurav</a></li>
+<li><a href="https://www.linkedin.com/in/sagar-m-cqf-frm-8b5a38123/">Sagar</a></li>
+<li><a href="https://www.linkedin.com/in/anirudhsingh77/">Anirudh</a> (WQU)</li>
+</ul>
+<h2 id="interested-roles"><a class="header" href="#interested-roles">Interested Roles</a></h2>
+<ul>
+<li>Equity Analyst (Intern)
+<ul>
+<li>The Money Roller</li>
+<li>Tikehau Ace Capital</li>
+<li>Fairview Succession</li>
+<li>Matador Investment Group</li>
+</ul>
+</li>
+<li>Equity Strategy Analyst (Intern) 
+<ul>
+<li>JPMC</li>
+</ul>
+</li>
+<li>Risk Analyst (Intern)</li>
+<li>Investment Research Analyst (Intern)
+<ul>
+<li>https://www.linkedin.com/company/aranca/</li>
+</ul>
+</li>
+<li>Financial Analyst (Intern)</li>
+</ul>
+<h2 id="key-terms"><a class="header" href="#key-terms">Key terms</a></h2>
+<ul>
+<li>Financial Analysis</li>
+<li>Investment Banking</li>
+<li>Investment Analysis</li>
+<li>Financial Engineering</li>
+<li>Quantitative Analysis</li>
+<li>Financial Modelling</li>
+</ul>
+<h2 id="domains"><a class="header" href="#domains">Domains</a></h2>
+<ul>
+<li>Real Estate</li>
+<li>Capital Markets</li>
+</ul>
+<h2 id="resources-1"><a class="header" href="#resources-1">Resources</a></h2>
+<ul>
+<li><a href="https://learn.wqu.edu/programs">World Quant University</a></li>
+<li><a href="https://www.youtube.com/watch?v=84n36iPhIFc&amp;t=64s">How to become a Quant?</a></li>
+<li><a href="https://www.quantstart.com/articles/topic/quant-careers/">Quant Careers</a></li>
+<li></li>
+</ul>
+<h2 id="my-skills"><a class="header" href="#my-skills">My Skills</a></h2>
+<ul>
+<li>Shell Scripting</li>
+<li>Bash Scripting</li>
+<li>SQL</li>
+<li>Python
+<ul>
+<li>Pandas</li>
+<li>Numpy</li>
+<li>SKlearn</li>
+</ul>
+</li>
+<li>R
+<ul>
+<li>xts</li>
+<li>zoo</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>The number of years of experience does not matter as long as you have built complex projects from scratch, a burning desire to learn more, constantly improve yourself, and solve tricky problems on a daily basis. We're a small team so you can assure yourself that whatever you contribute - in terms of an engineer, or otherwise - is always heard and discussed.
+from <a href="https://angel.co/jobs?job_listing_id=1849106">angel.co</a></p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="people"><a class="header" href="#people">People</a></h2>
+<ul>
+<li><a href="https://pages.stern.nyu.edu/~adamodar/">Aswath Damodaran</a> </li>
+<li><a href="https://wilmott.com/paul-wilmott/">Paul Wilmott</a> | [Book: Paul WIlmott Introduces Quant Finance] | <a href="https://www.youtube.com/playlist?list=PL8DC1113ADB63358E">Video Lectures</a> | <a href="https://www.wiley.com/legacy/wileychi/pwiqf2/degree.html">Solutions Manual</a></li>
+<li><a href="https://www.youtube.com/c/DimitriBianco/videos">Dimitri Bianco: Youtube</a></li>
+<li><a href="https://www.youtube.com/c/Quantopianvideos">Quantopian: YT Channel</a></li>
+</ul>
+<h2 id="courses"><a class="header" href="#courses">Courses</a></h2>
+<ul>
+<li>https://www.coursera.org/learn/financial-risk-management-with-r</li>
+<li>https://ocw.mit.edu/courses/18-s096-topics-in-mathematics-with-applications-in-finance-fall-2013/</li>
+<li>https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/</li>
+<li>https://ocw.mit.edu/courses/15-401-finance-theory-i-fall-2008/</li>
+<li><a href="https://onlinecourses.nptel.ac.in/noc22_ma26/course">Probability and Stochastics for Finance</a>: <a href="https://www.youtube.com/watch?v=732bzOEhQpM&amp;list=PLEYrMI37wMbplhGJmqhlYv0VUSwC6zMsU">P1</a> <a href="https://www.youtube.com/watch?v=Me_DWlSbe58&amp;list=PLQtOp02o5t8VOjzts8q0rHXLNYHSqdiml">P2</a></li>
+<li><a href="https://www.khanacademy.org/economics-finance-domain/core-finance">Khan Academy: FInance and Capital Markets</a></li>
+<li>https://www.coursera.org/learn/wharton-quantitative-modeling?specialization=finance-quantitative-modeling-analysts#syllabus</li>
+<li>https://www.coursera.org/learn/private-equity#instructors</li>
+<li>https://www.coursera.org/specializations/investment-portolio-management#courses</li>
+<li>https://www.coursera.org/specializations/investment-management#courses</li>
+<li>[IMP] https://www.coursera.org/specializations/investment-management-python-machine-learning#courses </li>
+<li><a href="https://youtube.com/playlist?list=PL8dPuuaLjXtPNZwz5_o_5uirJ8gQXnhEO">Crash Course: Economics</a></li>
+</ul>
+<h2 id="roadmapsguides"><a class="header" href="#roadmapsguides">Roadmaps/Guides</a></h2>
+<ul>
+<li>https://www.investopedia.com/articles/financial-careers/08/financial-career-options-professionals.asp (Full Series on Career in finance.)</li>
+<li>https://www.investopedia.com/articles/basics/11/become-self-taught-finance-expert.asp#toc-take-a-finance-course</li>
+</ul>
+<h2 id="lists"><a class="header" href="#lists">Lists</a></h2>
+<ul>
+<li><a href="http://www.moneychimp.com/books/">Book List: moneychimp</a></li>
+<li><a href="https://github.com/PlamenStilyianov/FinMathematics">Github repo with books on Quant Finance</a></li>
+<li><a href="https://github.com/wilsonfreitas/awesome-quant">Awesome Quant</a></li>
+<li><a href="https://github.com/georgezouq/awesome-ai-in-finance">Awesome AI in Finance</a></li>
+<li><a href="https://github.com/daleroberts/math-finance-cheat-sheet">Math-Finance Cheat Sheet</a></li>
+</ul>
+<h2 id="websitesforums"><a class="header" href="#websitesforums">Websites/Forums</a></h2>
+<ul>
+<li>https://quantnet.com/forum/</li>
+<li>http://www.moneychimp.com/</li>
+<li>https://www.wallstreetmojo.com/resources/</li>
+<li>https://www.investopedia.com/</li>
+</ul>
+<h2 id="tools"><a class="header" href="#tools">Tools</a></h2>
+<ul>
+<li><a href="https://openbb-finance.github.io/OpenBBTerminal/">Docs</a> | <a href="https://openbb.co/products/terminal">Website</a> | <a href="https://github.com/OpenBB-finance/OpenBBTerminal">Github</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h2 id="theory-for-quant"><a class="header" href="#theory-for-quant">Theory for Quant</a></h2>
+<ul>
+<li><a href="../Maths/Calculus.html">Calculus</a>
+<ul>
+<li>Stochastic Calculus</li>
+</ul>
+</li>
+<li><a href="../Maths/Probability.html">Probability</a>
+<ul>
+<li><a href="../Maths/StochasticProcesses.html">Stochastic Processes</a></li>
+</ul>
+</li>
+<li><a href="../Maths/LinearAlgebra.html">LA</a>
+<ul>
+<li><a href="../University/sem-2/LinearModels.html">Linear Models</a></li>
+</ul>
+</li>
+<li><a href="../Maths/Statistics.html">Statistics</a>
+<ul>
+<li>Algorithms (e.g. MonteCarlos)</li>
+</ul>
+</li>
+<li><a href="./FinanceTerms.html">Finance</a>
+<ul>
+<li>Varsity</li>
+<li><a href="https://www.khanacademy.org/economics-finance-domain/core-finance">Khan Academy: Finance &amp; Capital Markets</a></li>
+<li><a href="https://www.investopedia.com/best-resources-for-improving-financial-literacy-5091689">Investopedia: Best resources for improving financial literacy</a></li>
+</ul>
+</li>
+<li>Economics</li>
+<li>Risk Management</li>
+<li>Portfolio Optimization</li>
+</ul>
+<h2 id="programming"><a class="header" href="#programming">Programming</a></h2>
+<ul>
+<li><a href="../Tech/SQL.html">SQL</a></li>
+<li><a href="../Tech/R.html">R</a>
+<ul>
+<li><a href="https://r4ds.had.co.nz/">R4DS</a></li>
+<li><a href="https://app.datacamp.com/learn/career-tracks/quantitative-analyst-with-r">Quant Analyst with R</a></li>
+<li><a href="https://bookdown.org/wfoote01/faur/">Financial Analytics using R</a></li>
+</ul>
+</li>
+<li><a href="../Tech/Python.html">Python</a>
+<ul>
+<li>Datacamp</li>
+</ul>
+</li>
+<li><a href="https://www.youtube.com/playlist?list=PLMeDf8qRRqgU_-erq30v-k8_it4pOqhoQ">Deploying models</a></li>
+<li>Kaggle</li>
+</ul>
+<h2 id="more-info-on-quant-careers-and-roadmaps"><a class="header" href="#more-info-on-quant-careers-and-roadmaps">More Info on Quant Careers and Roadmaps</a></h2>
+<ul>
+<li>Subreddit Wikis</li>
+</ul>
+<h2 id="readings"><a class="header" href="#readings">Readings</a></h2>
+<ul>
+<li><a href="https://quantnet.com/threads/master-reading-list-for-quants-mfe-financial-engineering-students.535/">Master reading list for Quants, MFE (Financial Engineering) students</a></li>
+<li>Non Fictions to read
+<ul>
+<li>[Sapiens]</li>
+<li>[The Big Short, Inside the doomsday machine]</li>
+</ul>
+</li>
+<li>Academic Books to read
+<ul>
+<li><a href="../Maths/Statistics/ISLR.html">ISLR</a></li>
+<li>Paul Wilmott introduces Quant FInance</li>
+<li>OPTIONS, FUTURES AND OTHER DERIVATIVES</li>
+</ul>
+</li>
+</ul>
+<h2 id="interview-preparation"><a class="header" href="#interview-preparation"><a href="../Career/Interview.html">Interview Preparation</a></a></h2>
+<h2 id="projects"><a class="header" href="#projects"><a href="./Projects.html">Projects</a></a></h2>
+<div style="break-before: page; page-break-before: always;"></div><ul>
+<li><input disabled="" type="checkbox"/>
+<p>https://www.rstudio.com/resources/rstudioconf-2020/15-years-of-r-in-quantitative-finance/</p>
+</li>
+<li><input disabled="" type="checkbox"/>
+<p>Investopedia</p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+https://www.investopedia.com/terms/b/bondrating.asp</li>
+<li><input disabled="" type="checkbox"/>
+https://www.investopedia.com/terms/c/capitalexpenditure.asp</li>
+<li><input disabled="" type="checkbox"/>
+https://www.investopedia.com/terms/a/arbitrage.asp</li>
+<li><input disabled="" type="checkbox"/>
+https://www.investopedia.com/terms/d/derivative.asp</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+<p>Careers in Finance: Series by Zerodha </p>
+<ul>
+<li><input disabled="" type="checkbox"/>
+<a href="https://www.youtube.com/watch?v=qI_Dr9P76Bw">Corporate Finance</a> </li>
+<li><input disabled="" type="checkbox"/>
+<a href="https://www.youtube.com/watch?v=3ivP6-y8tN8">Investment Banking</a> </li>
+<li><input disabled="" type="checkbox"/>
+<a href="https://www.youtube.com/watch?v=PjQSs621oII">Public and private markets</a></li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"/>
+<p><a href="https://www.youtube.com/watch?v=ZNqkyKNobLE">Is the world going quants mad? Dr Paul Wilmott</a></p>
+</li>
+<li><input disabled="" type="checkbox"/>
+<p><a href="https://www.youtube.com/watch?v=ed2FWNWwE3I">Quants | The Alchemists of Wall Street | VPRO documentary</a></p>
+</li>
+<li><input disabled="" type="checkbox"/>
+<p><a href="https://www.youtube.com/watch?v=itU3QwcWFOE&amp;t=2s">OpenBB: Role of Python in the Finance Industry</a></p>
+</li>
+<li>
+<p>Search for Quant Resources on Github</p>
+</li>
+<li>
+<p>100 days of x</p>
+</li>
+<li>
+<p>Read Newspaper daily</p>
+</li>
+<li>
+<p>Listen to podcast daily</p>
+</li>
+<li>
+<p>Varsity Daily</p>
+</li>
+<li>
+<p>set up habits</p>
+</li>
+<li>
+<p>cleanup my linkedin and github profile.</p>
+<ul>
+<li>Do more projects and add them on github for recruiters to see</li>
+</ul>
+</li>
+<li>
+<p>Good Linkedin and angel list bio.</p>
+</li>
+<li>
+<p>How to message recruiters on linkedin/angel while sending a job application that you're a good fit</p>
+</li>
+<li>
+<p>Redo your profile on linkedin/Github/Angel.co to reflect your interest in finance/quant</p>
+</li>
+<li>
+<p>https://www.google.com/search?q=asset+management+company+in+india</p>
+</li>
+<li>
+<p>https://www.google.com/search?client=firefox-b-d&amp;q=vc+firms+in+india</p>
+</li>
+<li>
+<p>https://www.google.com/search?client=firefox-b-d&amp;q=popular+hedge+funds+in+india
+from <a href="./QuantitativeAnalyst.html">Quantitative Analyst</a></p>
+</li>
+<li><input disabled="" type="checkbox"/>
+<p>Roadmap to Quant Analyst</p>
+</li>
+<li><input disabled="" type="checkbox"/>
+<p>List companies which hire QuantAnalysts</p>
+</li>
+<li><input disabled="" type="checkbox"/>
+<p>Check resumes of people currently working as quant analyst</p>
+</li>
+<li><input disabled="" type="checkbox"/>
+<p>roles similar to quant analyst, which require similar skills.</p>
+</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </body>
+</html>

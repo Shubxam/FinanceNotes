@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Financial Statements - mdBook Quickstart</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="Demo site for mdBook Quickstart repo">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="blog.html"><strong aria-hidden="true">1.</strong> Blog</a></li><li class="chapter-item expanded "><a href="CorporateFinance.html"><strong aria-hidden="true">2.</strong> Corporate Finance</a></li><li class="chapter-item expanded "><a href="FinancialTerms.html"><strong aria-hidden="true">3.</strong> Financial Terms</a></li><li class="chapter-item expanded "><a href="FinancialStatements.html" class="active"><strong aria-hidden="true">4.</strong> Financial Statements</a></li><li class="chapter-item expanded "><a href="Projects.html"><strong aria-hidden="true">5.</strong> Projects</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="CreditCardFraudDetection.html"><strong aria-hidden="true">5.1.</strong> Credit Card Fraud Detection</a></li></ol></li><li class="chapter-item expanded "><a href="PWIQF.html"><strong aria-hidden="true">6.</strong> Paul Wilmott Introduces Quant Finance</a></li><li class="chapter-item expanded "><a href="QuantitativeAnalyst.html"><strong aria-hidden="true">7.</strong> Quantitative Analyst</a></li><li class="chapter-item expanded "><a href="Resources.html"><strong aria-hidden="true">8.</strong> Resources</a></li><li class="chapter-item expanded "><a href="Roadmap.html"><strong aria-hidden="true">9.</strong> Roadmap</a></li><li class="chapter-item expanded "><a href="Todos.html"><strong aria-hidden="true">10.</strong> Todos</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">mdBook Quickstart</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <p>In understanding financial growth of a company while craeting an algorithm, it helps if we understand how to read the three main financial statements:</p>
+<ul>
+<li><a href="#Income-Statement">Income Statement</a></li>
+<li><a href="#Balance-Sheet">Balance sheet</a></li>
+<li><a href="#Cash-Flow-Statement">Cash Flow Statement</a></li>
+</ul>
+<h2 id="income-statement"><a class="header" href="#income-statement">Income Statement</a></h2>
+<ul>
+<li>Represents company's performance over a period in time.</li>
+<li>Contains info about company's revenue, expenses and net income.</li>
+<li>Predictions about company's earnings could be made using income statement. Which affects company's image in the market.
+<img src="./img/1.png" alt="1-incomestatement" /></li>
+<li>Its often split into two sections</li>
+</ul>
+<ol>
+<li><strong>Operating</strong>
+<ul>
+<li>
+<p>Contains info on primary business line of a company.</p>
+<blockquote>
+<p>E.g. If a company's main line of business is Laptops, then operating section will contain info related to sale of laptops.</p>
+</blockquote>
+<ul>
+<li><em>sales</em> refers to the revenue from sales of the finished goods.</li>
+</ul>
+</li>
+<li>
+<p><em>cost of goods sold</em> (cogs) refers to cost asoociated with materials that go into production of the good. (The raw materials nothing else)</p>
+</li>
+<li>
+<p><em>Gross Margin</em> is the profit before deducting non-product operating expenses.</p>
+<ul>
+<li>$Gross Margin = sales - cogs$</li>
+</ul>
+</li>
+<li>
+<p>Now we list non-product operating expenses. These are the expenses not associated with cost of materials.</p>
+</li>
+<li>
+<p><em>Selling, General and Administration Expenses</em> (SGnA) are the expenses associated with the cost of producing the goods (except the materials).</p>
+<blockquote>
+<p>E.g. Office Rent, Employee Salaries are examples of SGnA.</p>
+</blockquote>
+</li>
+<li>
+<p><em>Depreciation</em> is the cost of using fixed assets over the course of income period.</p>
+<blockquote>
+<p>If $40 mil were spent on laptop manufacturing plant which could be used for 20 years, then each year the plant value would be depreciated by $2 million.</p>
+</blockquote>
+</li>
+<li>
+<p><em>Amoritization</em> is the process of paying off a debt with regular payments.</p>
+</li>
+</ul>
+</li>
+<li><strong>Non Operating</strong>
+<ul>
+<li>Contains info that is not related to company's primary line of business.</li>
+<li>Useful to isolate company's primary business line from other expenses which could still affect company's net revenue.</li>
+<li><em>Earnings per share</em> : Earnings/Company's shares
+<ul>
+<li>Useful to compare companies within same industries.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="balance-sheet"><a class="header" href="#balance-sheet">Balance Sheet</a></h2>
+<ul>
+<li>It represents a company's performance at a specific point in time (date).
+<img src="./img/2.png" alt="2-BalanceSheet" /></li>
+<li>Often split into 3 sections</li>
+</ul>
+<ol>
+<li><strong>Assets</strong>
+<ul>
+<li>Assets are listed at the top of the balance sheet.</li>
+<li>They are listed in the order of their liquidity (i.e. how liquid they are.)</li>
+<li>There are two types of assets
+<ol>
+<li><em>Current Assets</em> are the assets which would take less than a year to be liquidated.
+<ul>
+<li><em>Accounts Recievable</em> is the amount to be recieved by the company from some sources which hasn't been received yet.</li>
+</ul>
+</li>
+<li><em>Non-Current Assets</em> are the assets which are illiquid i.e. would take more than a year if were to be liquidated.
+<ul>
+<li>There are 2 types of non-current assets
+<ol>
+<li><em>Tangible NCA</em> : property, plants and equipments (PPnE) are example of tangible NCA.</li>
+<li><em>Non-Tangible NCA</em> : example of non-tangible NCA is Goodwill</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Liabilities</strong>
+<ul>
+<li>Liabilities are the debts or obligations which a company owes.</li>
+<li>Liabilities are listed in order in which they should be paid out first.</li>
+<li>There are two types of liabilities:
+<ol>
+<li><em>Current Liabilities</em> are liabilities which could be paid out within one year.
+<ul>
+<li><em>Accrued Expenses</em> are salaries of emplyees which hasn't been paid yet.</li>
+</ul>
+</li>
+<li><em>Non-Current Liabilities</em> are liabilities which would take more than a year to be paid off.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Shareholder Equity</strong> (Book Value)
+<ul>
+<li>Ownership of a company by its shareholders.</li>
+<li><em>Common stocks</em> are Proceeds from the sale of a common stock.</li>
+<li><em>Retained Earnings</em> are the prior earnings which could be paid out as dividends in future.</li>
+</ul>
+<blockquote>
+<ul>
+<li>It could also be thought of as the networth of a company. i.e. the value of each share if company were to shut off, selling all of its assets and paying off all of its debts.</li>
+<li>It does not equal the public market value i.e. value of its share in public market could be different than shareholder equity.</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>Balance sheet must always balance <br />
+i.e. $Assets = Liabilities + Shareholder Equity$</li>
+</ul>
+<h2 id="cash-flow-statement"><a class="header" href="#cash-flow-statement">Cash Flow Statement</a></h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=SXjfYfwVDJc&amp;list=PLRFLF1OxMm_XpPOrNgSiuNJoa0H1Nl8dt&amp;index=3">How to Read a Cash Flow Statement</a> #todo</li>
+</ul>
+<h1 id="references"><a class="header" href="#references">References</a></h1>
+<ul>
+<li>https://www.youtube.com/playlist?list=PLRFLF1OxMm_XpPOrNgSiuNJoa0H1Nl8dt</li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="FinancialTerms.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="Projects.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="FinancialTerms.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="Projects.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </body>
+</html>
